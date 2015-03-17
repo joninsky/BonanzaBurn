@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */; };
 		4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */; };
-		4E8119C51AB8830800D6F4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C41AB8830800D6F4BE /* ViewController.swift */; };
+		4E8119C51AB8830800D6F4BE /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */; };
 		4E8119C81AB8830800D6F4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119C61AB8830800D6F4BE /* Main.storyboard */; };
 		4E8119CA1AB8830800D6F4BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119C91AB8830800D6F4BE /* Images.xcassets */; };
 		4E8119CD1AB8830800D6F4BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119CB1AB8830800D6F4BE /* LaunchScreen.xib */; };
@@ -31,7 +31,7 @@
 		4E8119BE1AB8830800D6F4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E8119C21AB8830800D6F4BE /* BB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BB.xcdatamodel; sourceTree = "<group>"; };
-		4E8119C41AB8830800D6F4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 		4E8119C71AB8830800D6F4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4E8119C91AB8830800D6F4BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4E8119CC1AB8830800D6F4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -79,12 +79,9 @@
 		4E8119BC1AB8830800D6F4BE /* BB */ = {
 			isa = PBXGroup;
 			children = (
-				4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */,
-				4E8119C41AB8830800D6F4BE /* ViewController.swift */,
-				4E8119C61AB8830800D6F4BE /* Main.storyboard */,
-				4E8119C91AB8830800D6F4BE /* Images.xcassets */,
-				4E8119CB1AB8830800D6F4BE /* LaunchScreen.xib */,
-				4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */,
+				4E8119E41AB884EB00D6F4BE /* Controllers */,
+				4E8119E31AB884E300D6F4BE /* Views */,
+				4E8119E21AB8841000D6F4BE /* Models */,
 				4E8119BD1AB8830800D6F4BE /* Supporting Files */,
 			);
 			path = BB;
@@ -113,6 +110,33 @@
 				4E8119D71AB8830800D6F4BE /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E8119E21AB8841000D6F4BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		4E8119E31AB884E300D6F4BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E8119CB1AB8830800D6F4BE /* LaunchScreen.xib */,
+				4E8119C91AB8830800D6F4BE /* Images.xcassets */,
+				4E8119C61AB8830800D6F4BE /* Main.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4E8119E41AB884EB00D6F4BE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */,
+				4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E8119C51AB8830800D6F4BE /* ViewController.swift in Sources */,
+				4E8119C51AB8830800D6F4BE /* TakePhotoViewController.swift in Sources */,
 				4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */,
 				4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */,
 			);

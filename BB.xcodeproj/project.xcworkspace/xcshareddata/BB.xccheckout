@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9572C169-6AF7-4148-B31D-AC828D26146A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6AE68179FC18B86D6C93483F91F8766FC9548ED3</key>
+		<string>https://github.com/joninsky/BonanzaBurn.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BB.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6AE68179FC18B86D6C93483F91F8766FC9548ED3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/joninsky/BonanzaBurn.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6AE68179FC18B86D6C93483F91F8766FC9548ED3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6AE68179FC18B86D6C93483F91F8766FC9548ED3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BB</string>
+		</dict>
+	</array>
+</dict>
+</plist>
