@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E02BBDD1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E02BBDC1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png */; };
+		4E02BBE11AB8973F003ADEFC /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02BBE01AB8973F003ADEFC /* PhotoCollectionViewController.swift */; };
+		4E02BBE31AB89A6C003ADEFC /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02BBE21AB89A6C003ADEFC /* PhotoCell.swift */; };
+		4E02BBE51AB89BB9003ADEFC /* ImageTransferProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02BBE41AB89BB9003ADEFC /* ImageTransferProtocol.swift */; };
+		4E02BBE91AB8A005003ADEFC /* BurnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02BBE81AB8A005003ADEFC /* BurnerController.swift */; };
 		4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */; };
 		4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */; };
 		4E8119C51AB8830800D6F4BE /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */; };
@@ -27,6 +32,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E02BBDC1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2015-03-17 at 9.06.40 AM_burned.png"; sourceTree = "<group>"; };
+		4E02BBE01AB8973F003ADEFC /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		4E02BBE21AB89A6C003ADEFC /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		4E02BBE41AB89BB9003ADEFC /* ImageTransferProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransferProtocol.swift; sourceTree = "<group>"; };
+		4E02BBE81AB8A005003ADEFC /* BurnerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BurnerController.swift; sourceTree = "<group>"; };
 		4E8119BA1AB8830800D6F4BE /* BB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8119BE1AB8830800D6F4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +68,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E02BBE61AB89FDC003ADEFC /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4E02BBE41AB89BB9003ADEFC /* ImageTransferProtocol.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		4E02BBE71AB89FE9003ADEFC /* NetworkStuff */ = {
+			isa = PBXGroup;
+			children = (
+				4E02BBE81AB8A005003ADEFC /* BurnerController.swift */,
+			);
+			name = NetworkStuff;
+			sourceTree = "<group>";
+		};
 		4E8119B11AB8830800D6F4BE = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +116,7 @@
 		4E8119BD1AB8830800D6F4BE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E02BBDC1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png */,
 				4E8119BE1AB8830800D6F4BE /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -116,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */,
+				4E02BBE21AB89A6C003ADEFC /* PhotoCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -133,8 +161,11 @@
 		4E8119E41AB884EB00D6F4BE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */,
+				4E02BBE71AB89FE9003ADEFC /* NetworkStuff */,
+				4E02BBE61AB89FDC003ADEFC /* Protocols */,
 				4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */,
+				4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */,
+				4E02BBE01AB8973F003ADEFC /* PhotoCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -221,6 +252,7 @@
 			files = (
 				4E8119C81AB8830800D6F4BE /* Main.storyboard in Resources */,
 				4E8119CD1AB8830800D6F4BE /* LaunchScreen.xib in Resources */,
+				4E02BBDD1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png in Resources */,
 				4E8119CA1AB8830800D6F4BE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,8 +272,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E8119C51AB8830800D6F4BE /* TakePhotoViewController.swift in Sources */,
+				4E02BBE31AB89A6C003ADEFC /* PhotoCell.swift in Sources */,
+				4E02BBE91AB8A005003ADEFC /* BurnerController.swift in Sources */,
 				4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */,
 				4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */,
+				4E02BBE51AB89BB9003ADEFC /* ImageTransferProtocol.swift in Sources */,
+				4E02BBE11AB8973F003ADEFC /* PhotoCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +471,7 @@
 				4E8119DE1AB8830800D6F4BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E8119DF1AB8830800D6F4BE /* Build configuration list for PBXNativeTarget "BBTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +480,7 @@
 				4E8119E11AB8830800D6F4BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
