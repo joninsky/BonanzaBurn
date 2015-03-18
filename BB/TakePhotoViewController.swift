@@ -61,6 +61,33 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
       
       alertController.addAction(alertActionDismiss)
       presentViewController(alertController, animated: true, completion: nil)
+    }else{
+      var imageData: NSData?
+      var imageFile: PFFile?
+      if self.myImageView.image != nil {
+        imageData = UIImagePNGRepresentation(self.myImageView.image)
+        imageFile = PFFile(name: "NewImage.png", data: imageData, contentType: "Image")
+      }
+      
+      let newPraseImageObject = PFObject(className: "Images")
+      if imageFile != nil {
+        newPraseImageObject["theImage"] = imageFile
+        newPraseImageObject["imageName"] = "An Image"
+        newPraseImageObject["description"] = "My Image"
+        newPraseImageObject["imageURL"] = imageFile!.url
+        newPraseImageObject.saveInBackgroundWithBlock({ (didSave, error) -> Void in
+          if didSave {
+            println("Phrase Saved")
+            self.navigationController?.popViewControllerAnimated(true)
+          }else{
+            println("Phrase not saved")
+          }
+        })
+      }
+      
+      
+      //BurnerController.sharedBurn.lightTheFire()
+      
     }
   }
   

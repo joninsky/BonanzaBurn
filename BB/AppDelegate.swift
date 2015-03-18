@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
+    var appParseKey = "Ey7MTHkunhwYeqrXGBEV6iq4nxfEZzgOpRPm7ZOf"
+    var appClientKey = "WHicUPkfc3hcHratMNv1q3fnPW0cwlcOiEoMkUq2"
+    
+    Parse.setApplicationId(appParseKey, clientKey: appClientKey)
     
     BurnerController.sharedBurn
     return true
