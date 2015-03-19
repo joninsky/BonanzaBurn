@@ -17,12 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-VE-LFA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="600" id="STg-HW-dKM"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oF-AD-zMI">
                                 <rect key="frame" x="259" y="460" width="82" height="100"/>
                                 <state key="normal" image="Screen Shot 2015-03-17 at 9.06.40 AM_burned.png">
@@ -32,15 +26,43 @@
                                     <action selector="burnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yHq-JZ-u28"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jxs-VE-LFA">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="536" id="STg-HW-dKM"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Jxs-VE-LFA" secondAttribute="trailing" constant="-16" id="5rh-49-mdW"/>
-                            <constraint firstItem="Jxs-VE-LFA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="GAK-dI-zpw"/>
-                            <constraint firstItem="Jxs-VE-LFA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="GXP-W7-sPp"/>
-                            <constraint firstAttribute="centerX" secondItem="7oF-AD-zMI" secondAttribute="centerX" id="KZd-cN-kkF"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7oF-AD-zMI" secondAttribute="bottom" constant="40" id="sZS-k7-cRr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jxs-VE-LFA" secondAttribute="trailing" constant="7" id="2B6-nR-lLE"/>
+                            <constraint firstItem="Jxs-VE-LFA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2Ee-N8-u7u"/>
+                            <constraint firstItem="Jxs-VE-LFA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="IDI-4g-ssD"/>
+                            <constraint firstAttribute="centerX" secondItem="7oF-AD-zMI" secondAttribute="centerX" id="NCx-M8-pnL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7oF-AD-zMI" secondAttribute="bottom" constant="40" id="OkQ-Y0-Aoj"/>
+                            <constraint firstItem="Jxs-VE-LFA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="dj0-Vk-i7i"/>
+                            <constraint firstItem="Jxs-VE-LFA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="euO-X1-Qdh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jxs-VE-LFA" secondAttribute="bottom" id="jHL-2D-wc6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jxs-VE-LFA" secondAttribute="trailing" constant="-16" id="mxk-2d-kjI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2B6-nR-lLE"/>
+                                <exclude reference="IDI-4g-ssD"/>
+                                <exclude reference="dj0-Vk-i7i"/>
+                                <exclude reference="jHL-2D-wc6"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="2B6-nR-lLE"/>
+                                <exclude reference="2Ee-N8-u7u"/>
+                                <include reference="IDI-4g-ssD"/>
+                                <include reference="dj0-Vk-i7i"/>
+                                <exclude reference="euO-X1-Qdh"/>
+                                <exclude reference="mxk-2d-kjI"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="6iS-xf-m3m">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Cjs-IE-M3e">

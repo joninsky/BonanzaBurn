@@ -23,7 +23,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   //MARK: Lifecycle methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.imageHeight.constant = self.myImageView.frame.width * 0.85
+    self.imageHeight.constant = self.myImageView.frame.width * 0.6
     self.doubleTap = UITapGestureRecognizer()
     self.doubleTap!.addTarget(self, action: "doubleTapped:")
     self.doubleTap!.numberOfTapsRequired = 2
@@ -64,15 +64,12 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
       alertController.addAction(alertActionDismiss)
       presentViewController(alertController, animated: true, completion: nil)
     }else{
-      
-     //BurnerController.sharedBurn.getTheCharcoal()
       var imageData: NSData?
       var imageFile: PFFile?
       if self.myImageView.image != nil {
         imageData = UIImagePNGRepresentation(self.myImageView.image)
         imageFile = PFFile(name: "NewImage.png", data: imageData, contentType: "Image")
       }
-      
       let newPraseImageObject = PFObject(className: "Images")
       if imageFile != nil {
         newPraseImageObject["theImage"] = imageFile
@@ -81,22 +78,23 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         //newPraseImageObject["imageURL"] = imageFile!.url
         newPraseImageObject.saveInBackgroundWithBlock({ (didSave, error) -> Void in
           if didSave {
-            println("Phrase Saved")
-            println(imageFile!.url!)
             BurnerController.sharedBurn.lightTheFire(imageFile!.url!, completion: { (imageID, imagePosition) -> Void in
               self.imageID = imageID
-              let miltiplier: Int = imagePosition.toInt()!
+              let miltiplier: Int = imagePosition!.toInt()!
               let secondsToWait: Double = Double(miltiplier) * 6
               let timer = NSTimer.scheduledTimerWithTimeInterval(secondsToWait, target: self, selector: "finishUpImageProcessing:", userInfo: nil, repeats: false)
+              let alertController = UIAlertController(title: "In Line!", message: "Your photo was queued on the server in position \(imagePosition) ", preferredStyle: UIAlertControllerStyle.Alert)
+              
+              let alertActionDismiss = UIAlertAction(title: "Thanks.", style: UIAlertActionStyle.Default, handler: nil)
+              
+              alertController.addAction(alertActionDismiss)
+              self.presentViewController(alertController, animated: true, completion: nil)
             })
           }else{
             println("Phrase not saved")
           }
         })
       }
-      
-      
-      
     }
   }
   
@@ -113,23 +111,20 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   }
   
   func finishUpImageProcessing(sender: AnyObject) {
-    
-    
-    
     BurnerController.sharedBurn.getTheCharcoal(self.imageID!, completion: { (returnedDictionary) -> Void in
-      let dictionaryOfMasks = returnedDictionary
-      let arrayOfKeys = [String](dictionaryOfMasks.keys)
-      BurnerController.sharedBurn.riseFromTheAshes(arrayOfKeys[0], imageID: self.imageID!, completion: { (imageURL) -> Void in
-        BurnerController.sharedBurn.fetchFinalImage(imageURL, completion: { (theReturnedImage) -> Void in
-          self.myImageView.image = theReturnedImage
+      if returnedDictionary.count == 0{
+        let timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "finishUpImageProcessing:", userInfo: nil, repeats: false)
+      }else{
+        let dictionaryOfMasks = returnedDictionary
+        let arrayOfKeys = [String](dictionaryOfMasks.keys)
+        BurnerController.sharedBurn.riseFromTheAshes(arrayOfKeys[0], imageID: self.imageID!, completion: { (imageURL) -> Void in
+          BurnerController.sharedBurn.fetchFinalImage(imageURL!, completion: { (theReturnedImage) -> Void in
+            self.myImageView.image = theReturnedImage
+          })
+          
         })
-        
-      })
-      
+      }
     })
-    
-    
   }
-  
 }
 
