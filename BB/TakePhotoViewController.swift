@@ -18,10 +18,12 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   @IBOutlet weak var imageHeight: NSLayoutConstraint!
   
   var doubleTap: UITapGestureRecognizer?
+  
+  var imageID: String?
   //MARK: Lifecycle methods
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.imageHeight.constant = self.myImageView.frame.width
+    self.imageHeight.constant = self.myImageView.frame.width * 0.85
     self.doubleTap = UITapGestureRecognizer()
     self.doubleTap!.addTarget(self, action: "doubleTapped:")
     self.doubleTap!.numberOfTapsRequired = 2
@@ -62,6 +64,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
       alertController.addAction(alertActionDismiss)
       presentViewController(alertController, animated: true, completion: nil)
     }else{
+      
+     //BurnerController.sharedBurn.getTheCharcoal()
       var imageData: NSData?
       var imageFile: PFFile?
       if self.myImageView.image != nil {
@@ -74,11 +78,17 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         newPraseImageObject["theImage"] = imageFile
         newPraseImageObject["imageName"] = "An Image"
         newPraseImageObject["description"] = "My Image"
-        newPraseImageObject["imageURL"] = imageFile!.url
+        //newPraseImageObject["imageURL"] = imageFile!.url
         newPraseImageObject.saveInBackgroundWithBlock({ (didSave, error) -> Void in
           if didSave {
             println("Phrase Saved")
-            self.navigationController?.popViewControllerAnimated(true)
+            println(imageFile!.url!)
+            BurnerController.sharedBurn.lightTheFire(imageFile!.url!, completion: { (imageID, imagePosition) -> Void in
+              self.imageID = imageID
+              let miltiplier: Int = imagePosition.toInt()!
+              let secondsToWait: Double = Double(miltiplier) * 6
+              let timer = NSTimer.scheduledTimerWithTimeInterval(secondsToWait, target: self, selector: "finishUpImageProcessing:", userInfo: nil, repeats: false)
+            })
           }else{
             println("Phrase not saved")
           }
@@ -86,7 +96,6 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
       }
       
       
-      //BurnerController.sharedBurn.lightTheFire()
       
     }
   }
@@ -101,6 +110,25 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   
   func transferImage(theImage: UIImage) {
     self.myImageView.image = theImage
+  }
+  
+  func finishUpImageProcessing(sender: AnyObject) {
+    
+    
+    
+    BurnerController.sharedBurn.getTheCharcoal(self.imageID!, completion: { (returnedDictionary) -> Void in
+      let dictionaryOfMasks = returnedDictionary
+      let arrayOfKeys = [String](dictionaryOfMasks.keys)
+      BurnerController.sharedBurn.riseFromTheAshes(arrayOfKeys[0], imageID: self.imageID!, completion: { (imageURL) -> Void in
+        BurnerController.sharedBurn.fetchFinalImage(imageURL, completion: { (theReturnedImage) -> Void in
+          self.myImageView.image = theReturnedImage
+        })
+        
+      })
+      
+    })
+    
+    
   }
   
 }
