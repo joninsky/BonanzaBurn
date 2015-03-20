@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3wz-xS-uee">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -65,6 +66,11 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="6iS-xf-m3m">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="K23-TV-GtV">
+                            <connections>
+                                <action selector="saveImageAction:" destination="BYZ-38-t0r" id="Ymz-O2-bkx"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="Cjs-IE-M3e">
                             <connections>
                                 <action selector="cameraButtonPressed:" destination="BYZ-38-t0r" id="ug0-w1-n3s"/>
@@ -75,11 +81,83 @@
                         <outlet property="cameraButton" destination="Cjs-IE-M3e" id="V9D-RK-A2s"/>
                         <outlet property="imageHeight" destination="STg-HW-dKM" id="QOt-nv-auK"/>
                         <outlet property="myImageView" destination="Jxs-VE-LFA" id="rRF-3K-ccH"/>
+                        <outlet property="saveButtom" destination="K23-TV-GtV" id="usb-vk-7PW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041" y="-345"/>
+        </scene>
+        <!--Mask Collection View Controller-->
+        <scene sceneID="zOe-0x-I5A">
+            <objects>
+                <viewController storyboardIdentifier="MaskCollectionView" id="py6-Ep-NPG" customClass="MaskCollectionViewController" customModule="BB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XmV-9v-00L"/>
+                        <viewControllerLayoutGuide type="bottom" id="MRj-pu-PUt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7nF-IN-oEm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dd6-4y-DDX">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2No-l3-Hew">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="maskCell" id="3gE-f3-wN9">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dd6-4y-DDX" secondAttribute="trailing" constant="-16" id="3Ph-WT-T3j"/>
+                            <constraint firstItem="dd6-4y-DDX" firstAttribute="top" secondItem="7nF-IN-oEm" secondAttribute="topMargin" id="EwY-4h-NpQ"/>
+                            <constraint firstItem="MRj-pu-PUt" firstAttribute="top" secondItem="dd6-4y-DDX" secondAttribute="bottom" id="Nn6-Y4-df8"/>
+                            <constraint firstItem="dd6-4y-DDX" firstAttribute="leading" secondItem="7nF-IN-oEm" secondAttribute="leadingMargin" constant="-16" id="cgg-ud-kns"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dd6-4y-DDX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Nn6-Y4-df8"/>
+                                <exclude reference="3Ph-WT-T3j"/>
+                                <exclude reference="EwY-4h-NpQ"/>
+                                <exclude reference="cgg-ud-kns"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="dd6-4y-DDX"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Nn6-Y4-df8"/>
+                                <include reference="3Ph-WT-T3j"/>
+                                <include reference="EwY-4h-NpQ"/>
+                                <include reference="cgg-ud-kns"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="myCollectionView" destination="dd6-4y-DDX" id="Q1h-yY-oEo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sQI-X6-4Ph" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045.5" y="349.5"/>
         </scene>
         <!--Photo Collection View Controller-->
         <scene sceneID="w4g-XW-MvS">

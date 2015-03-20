@@ -33,6 +33,7 @@
 		4E02BC101ABA06DE003ADEFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02BC0F1ABA06DE003ADEFC /* CoreGraphics.framework */; };
 		4E02BC121ABA06EA003ADEFC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02BC111ABA06EA003ADEFC /* CFNetwork.framework */; };
 		4E02BC141ABA06F8003ADEFC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02BC131ABA06F8003ADEFC /* AudioToolbox.framework */; };
+		4E02BC161ABB60E4003ADEFC /* MaskCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02BC151ABB60E4003ADEFC /* MaskCollectionViewController.swift */; };
 		4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */; };
 		4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */; };
 		4E8119C51AB8830800D6F4BE /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */; };
@@ -76,6 +77,7 @@
 		4E02BC0F1ABA06DE003ADEFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		4E02BC111ABA06EA003ADEFC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4E02BC131ABA06F8003ADEFC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4E02BC151ABB60E4003ADEFC /* MaskCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaskCollectionViewController.swift; sourceTree = "<group>"; };
 		4E8119BA1AB8830800D6F4BE /* BB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8119BE1AB8830800D6F4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				4E8119BF1AB8830800D6F4BE /* AppDelegate.swift */,
 				4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */,
 				4E02BBE01AB8973F003ADEFC /* PhotoCollectionViewController.swift */,
+				4E02BC151ABB60E4003ADEFC /* MaskCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				4E02BBE91AB8A005003ADEFC /* BurnerController.swift in Sources */,
 				4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */,
 				4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */,
+				4E02BC161ABB60E4003ADEFC /* MaskCollectionViewController.swift in Sources */,
 				4E02BBE51AB89BB9003ADEFC /* ImageTransferProtocol.swift in Sources */,
 				4E02BBEB1AB8D795003ADEFC /* GlobalData.swift in Sources */,
 				4E02BBE11AB8973F003ADEFC /* PhotoCollectionViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageTransferProtocol {
+class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImageTransferProtocol, MaskTransferProtocol {
   
   //MARK: Properties and outlets
   @IBOutlet weak var myImageView: UIImageView!
@@ -16,6 +16,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   @IBOutlet weak var cameraButton: UIBarButtonItem!
   
   @IBOutlet weak var imageHeight: NSLayoutConstraint!
+  
+  @IBOutlet weak var saveButtom: UIBarButtonItem!
   
   var doubleTap: UITapGestureRecognizer?
   
@@ -28,6 +30,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
     self.doubleTap!.addTarget(self, action: "doubleTapped:")
     self.doubleTap!.numberOfTapsRequired = 2
     self.view.addGestureRecognizer(self.doubleTap!)
+    self.saveButtom.enabled = false
+    
     if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
       self.cameraButton.enabled = false
     }
@@ -83,7 +87,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
               let miltiplier: Int = imagePosition!.toInt()!
               let secondsToWait: Double = Double(miltiplier) * 6
               let timer = NSTimer.scheduledTimerWithTimeInterval(secondsToWait, target: self, selector: "finishUpImageProcessing:", userInfo: nil, repeats: false)
-              let alertController = UIAlertController(title: "In Line!", message: "Your photo was queued on the server in position \(imagePosition) ", preferredStyle: UIAlertControllerStyle.Alert)
+              let alertController = UIAlertController(title: "In Line!", message: "Your photo was queued on the server in position \(imagePosition!) ", preferredStyle: UIAlertControllerStyle.Alert)
               
               let alertActionDismiss = UIAlertAction(title: "Thanks.", style: UIAlertActionStyle.Default, handler: nil)
               
@@ -106,8 +110,35 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
     self.navigationController?.pushViewController(DVC, animated: true)    
   }
   
+  
+  //MARK: Button Functions
+  @IBAction func saveImageAction(sender: AnyObject) {
+    
+    UIImageWriteToSavedPhotosAlbum(self.myImageView.image, nil, nil, nil)
+    let alertController = UIAlertController(title: "Saved!", message: "We saved your photo on the camera roll", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let alertActionDismiss = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+    
+    alertController.addAction(alertActionDismiss)
+    self.presentViewController(alertController, animated: true, completion: nil)
+
+  }
+  
+  
+  
   func transferImage(theImage: UIImage) {
     self.myImageView.image = theImage
+  }
+  
+  
+  func transferMaks(theMask: String){
+      BurnerController.sharedBurn.riseFromTheAshes(theMask, imageID: self.imageID!, completion: { (imageURL) -> Void in
+        BurnerController.sharedBurn.fetchFinalImage(imageURL!, completion: { (theReturnedImage) -> Void in
+            self.myImageView.image = theReturnedImage
+            self.saveButtom.enabled = true
+        })
+    
+      })
   }
   
   func finishUpImageProcessing(sender: AnyObject) {
@@ -117,12 +148,13 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
       }else{
         let dictionaryOfMasks = returnedDictionary
         let arrayOfKeys = [String](dictionaryOfMasks.keys)
-        BurnerController.sharedBurn.riseFromTheAshes(arrayOfKeys[0], imageID: self.imageID!, completion: { (imageURL) -> Void in
-          BurnerController.sharedBurn.fetchFinalImage(imageURL!, completion: { (theReturnedImage) -> Void in
-            self.myImageView.image = theReturnedImage
-          })
-          
-        })
+        let DVC = self.storyboard?.instantiateViewControllerWithIdentifier("MaskCollectionView") as MaskCollectionViewController
+        DVC.dictionaryOfMasks = returnedDictionary
+        DVC.originalImage = self.myImageView.image
+        DVC.delegate = self
+        self.navigationController?.pushViewController(DVC, animated: true)
+        
+    
       }
     })
   }

@@ -14,3 +14,10 @@ protocol ImageTransferProtocol {
   func transferImage (_: UIImage)
   
 }
+
+protocol MaskTransferProtocol {
+  
+  func transferMaks (_:String)
+  
+  
+}
