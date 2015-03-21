@@ -13,7 +13,7 @@ class MaskCollectionViewController: UIViewController, UICollectionViewDataSource
   //MARK: Properties
   @IBOutlet weak var myCollectionView: UICollectionView!
   
-  var originalImage: UIImage?
+  //var originalImage: UIImage?
   var dictionaryOfMasks: [String:String]?
   var arrayOfURLs: [String]?
   var arrayOfIDs: [String]?
@@ -52,7 +52,7 @@ class MaskCollectionViewController: UIViewController, UICollectionViewDataSource
     
     let Cell = collectionView.dequeueReusableCellWithReuseIdentifier("maskCell", forIndexPath: indexPath) as PickerPhotoCell
     
-    //Cell.imageView.image = self.originalImage!
+    Cell.imageView.image = nil
     if self.dictionaryOfMasks! == NSNull() || self.dictionaryOfMasks!.count == 0 {
       
       
