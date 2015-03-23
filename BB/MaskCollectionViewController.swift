@@ -31,7 +31,6 @@ class MaskCollectionViewController: UIViewController, UICollectionViewDataSource
     self.myCollectionView.registerClass(PickerPhotoCell.self, forCellWithReuseIdentifier: "maskCell")
     self.myCollectionView.dataSource = self
     self.myCollectionView.delegate = self
-    
     self.arrayOfURLs = [String](self.dictionaryOfMasks!.values)
     self.arrayOfIDs = [String](self.dictionaryOfMasks!.keys)
   }
@@ -55,18 +54,14 @@ class MaskCollectionViewController: UIViewController, UICollectionViewDataSource
     Cell.imageView.image = nil
     if self.dictionaryOfMasks! == NSNull() || self.dictionaryOfMasks!.count == 0 {
       
-      
-      
-      
     }else{
       
       BurnerController.sharedBurn.fetchFinalImage(self.arrayOfURLs![indexPath.row], completion: { (theImage) -> Void in
         
-     let layer = CALayer()
+        let layer = CALayer()
         layer.contents = theImage!.CGImage
         layer.frame = Cell.bounds
         Cell.imageView.layer.mask = layer
-        
         Cell.imageView.backgroundColor = UIColor.whiteColor()
       
       })

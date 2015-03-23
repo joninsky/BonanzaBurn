@@ -28,6 +28,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   var pichRecognizer: UIPinchGestureRecognizer?
   
   var imageID: String?
+  
+  var progressVC: ProgressViewController?
   //MARK: Lifecycle methods
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -100,7 +102,6 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         newPraseImageObject["theImage"] = imageFile
         newPraseImageObject["imageName"] = "An Image"
         newPraseImageObject["description"] = "My Image"
-        //newPraseImageObject["imageURL"] = imageFile!.url
         newPraseImageObject.saveInBackgroundWithBlock({ (didSave, error) -> Void in
           if didSave {
             BurnerController.sharedBurn.lightTheFire(imageFile!.url!, completion: { (imageID, imagePosition) -> Void in
@@ -114,6 +115,10 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
               
               alertController.addAction(alertActionDismiss)
               self.presentViewController(alertController, animated: true, completion: nil)
+              
+              self.progressVC = ProgressViewController()
+            
+              
             })
           }else{
             println("Phrase not saved")
@@ -135,12 +140,16 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   //MARK: Button Functions
   @IBAction func saveImageAction(sender: AnyObject) {
     
-    UIImageWriteToSavedPhotosAlbum(self.myImageView.image, nil, nil, nil)
-    let alertController = UIAlertController(title: "Saved!", message: "We saved your photo on the camera roll", preferredStyle: UIAlertControllerStyle.Alert)
+   
+    let alertController = UIAlertController(title: "Save?", message: "Save your image to your local camera roll?", preferredStyle: UIAlertControllerStyle.Alert)
     
-    let alertActionDismiss = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+    let alertActionDismiss = UIAlertAction(title: "Wait! No!", style: UIAlertActionStyle.Default, handler: nil)
+    let alertActionSave = UIAlertAction(title: "Save", style: UIAlertActionStyle.Default) { (theAction) -> Void in
+       UIImageWriteToSavedPhotosAlbum(self.myImageView.image, nil, nil, nil)
+    }
     
     alertController.addAction(alertActionDismiss)
+    alertController.addAction(alertActionSave)
     self.presentViewController(alertController, animated: true, completion: nil)
 
   }

@@ -6,6 +6,42 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="eLr-Of-TiE">
+            <objects>
+                <viewController storyboardIdentifier="ProgressView" id="X4h-rF-wYD" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Lpm-fA-ZWh"/>
+                        <viewControllerLayoutGuide type="bottom" id="UFX-oH-KTu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D5b-IR-PNm">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" trackImage="Screen Shot 2015-03-17 at 9.06.40 AM_burned.png" translatesAutoresizingMaskIntoConstraints="NO" id="9gI-Ge-Edn">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
+                                <color key="progressTintColor" red="0.90196078431372551" green="0.27058823529411763" blue="0.14509803921568629" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="197" width="368" height="2"/>
+                                </variation>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="9gI-Ge-Edn"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="9gI-Ge-Edn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Zk-CQ-ka1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="976.5" y="-1119"/>
+        </scene>
         <!--Take Photo View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -18,15 +54,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oF-AD-zMI">
-                                <rect key="frame" x="259" y="460" width="82" height="100"/>
-                                <state key="normal" image="Screen Shot 2015-03-17 at 9.06.40 AM_burned.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="burnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yHq-JZ-u28"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-rW-3BS">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
@@ -51,20 +78,20 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="NdU-Rk-kuT" secondAttribute="trailing" constant="8" id="2jC-WA-uPg"/>
-                                    <constraint firstAttribute="bottom" secondItem="NdU-Rk-kuT" secondAttribute="bottom" constant="8" id="CBp-7E-p5Z"/>
-                                    <constraint firstItem="NdU-Rk-kuT" firstAttribute="leading" secondItem="mvS-rW-3BS" secondAttribute="leading" constant="8" id="pp0-Dx-Tce"/>
-                                    <constraint firstItem="NdU-Rk-kuT" firstAttribute="top" secondItem="mvS-rW-3BS" secondAttribute="top" constant="8" id="whk-3K-3h5"/>
+                                    <constraint firstAttribute="bottom" secondItem="NdU-Rk-kuT" secondAttribute="bottom" constant="8" id="DKW-MN-AR7"/>
+                                    <constraint firstAttribute="trailing" secondItem="NdU-Rk-kuT" secondAttribute="trailing" constant="8" id="V1c-9f-lsx"/>
+                                    <constraint firstItem="NdU-Rk-kuT" firstAttribute="leading" secondItem="mvS-rW-3BS" secondAttribute="leading" constant="8" id="hPI-Ef-l12"/>
+                                    <constraint firstItem="NdU-Rk-kuT" firstAttribute="top" secondItem="mvS-rW-3BS" secondAttribute="top" constant="8" id="ud3-Nj-6Gm"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="NdU-Rk-kuT"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <exclude reference="2jC-WA-uPg"/>
-                                        <exclude reference="CBp-7E-p5Z"/>
-                                        <exclude reference="pp0-Dx-Tce"/>
-                                        <exclude reference="whk-3K-3h5"/>
+                                        <exclude reference="DKW-MN-AR7"/>
+                                        <exclude reference="V1c-9f-lsx"/>
+                                        <exclude reference="hPI-Ef-l12"/>
+                                        <exclude reference="ud3-Nj-6Gm"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
@@ -72,32 +99,43 @@
                                         <include reference="NdU-Rk-kuT"/>
                                     </mask>
                                     <mask key="constraints">
-                                        <include reference="2jC-WA-uPg"/>
-                                        <include reference="CBp-7E-p5Z"/>
-                                        <include reference="pp0-Dx-Tce"/>
-                                        <include reference="whk-3K-3h5"/>
+                                        <include reference="DKW-MN-AR7"/>
+                                        <include reference="V1c-9f-lsx"/>
+                                        <include reference="hPI-Ef-l12"/>
+                                        <include reference="ud3-Nj-6Gm"/>
                                     </mask>
                                 </variation>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oF-AD-zMI">
+                                <rect key="frame" x="259" y="460" width="82" height="100"/>
+                                <state key="normal" image="Screen Shot 2015-03-17 at 9.06.40 AM_burned.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="burnButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yHq-JZ-u28"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mvS-rW-3BS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3kI-Vq-4cX"/>
-                            <constraint firstItem="mvS-rW-3BS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="MbB-PV-fZw"/>
-                            <constraint firstAttribute="centerX" secondItem="7oF-AD-zMI" secondAttribute="centerX" id="NCx-M8-pnL"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7oF-AD-zMI" secondAttribute="bottom" constant="40" id="OkQ-Y0-Aoj"/>
-                            <constraint firstItem="7oF-AD-zMI" firstAttribute="top" secondItem="mvS-rW-3BS" secondAttribute="bottom" constant="8" id="SnG-Qn-nNj"/>
-                            <constraint firstItem="mvS-rW-3BS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qeb-3P-4pF"/>
+                            <constraint firstItem="mvS-rW-3BS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="AS1-0A-cUy"/>
+                            <constraint firstAttribute="centerX" secondItem="7oF-AD-zMI" secondAttribute="centerX" id="Z94-TA-SG4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7oF-AD-zMI" secondAttribute="bottom" constant="41" id="bmO-5B-Kzr"/>
+                            <constraint firstItem="mvS-rW-3BS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="xQ3-oC-XcK"/>
+                            <constraint firstItem="7oF-AD-zMI" firstAttribute="top" secondItem="mvS-rW-3BS" secondAttribute="bottom" constant="40" id="yAp-x0-yZv"/>
+                            <constraint firstItem="mvS-rW-3BS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zjx-t8-CkW"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="mvS-rW-3BS"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="3kI-Vq-4cX"/>
-                                <exclude reference="MbB-PV-fZw"/>
-                                <exclude reference="qeb-3P-4pF"/>
-                                <exclude reference="SnG-Qn-nNj"/>
+                                <exclude reference="AS1-0A-cUy"/>
+                                <exclude reference="xQ3-oC-XcK"/>
+                                <exclude reference="zjx-t8-CkW"/>
+                                <exclude reference="Z94-TA-SG4"/>
+                                <exclude reference="yAp-x0-yZv"/>
+                                <exclude reference="bmO-5B-Kzr"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -105,10 +143,12 @@
                                 <include reference="mvS-rW-3BS"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="3kI-Vq-4cX"/>
-                                <include reference="MbB-PV-fZw"/>
-                                <include reference="qeb-3P-4pF"/>
-                                <include reference="SnG-Qn-nNj"/>
+                                <include reference="AS1-0A-cUy"/>
+                                <include reference="xQ3-oC-XcK"/>
+                                <include reference="zjx-t8-CkW"/>
+                                <include reference="Z94-TA-SG4"/>
+                                <include reference="yAp-x0-yZv"/>
+                                <include reference="bmO-5B-Kzr"/>
                             </mask>
                         </variation>
                     </view>
@@ -135,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041" y="-345"/>
+            <point key="canvasLocation" x="976.5" y="-411.75"/>
         </scene>
         <!--Mask Collection View Controller-->
         <scene sceneID="zOe-0x-I5A">
@@ -277,6 +317,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Screen Shot 2015-03-17 at 9.06.40 AM_burned.png" width="82" height="100"/>
+        <image name="Screen Shot 2015-03-17 at 9.06.40 AM_burned.png" width="40" height="60"/>
     </resources>
 </document>

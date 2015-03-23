@@ -28,6 +28,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDataSourc
       self.myCollectionView!.registerClass(PickerPhotoCell.self, forCellWithReuseIdentifier: "photoCell")
       self.myCollectionView.dataSource = self
       self.myCollectionView.delegate = self
+      self.myCollectionView.backgroundColor = UIColor.whiteColor()  
       self.imageManager = PHCachingImageManager()
       self.arrayOfFetchedResults = PHAsset.fetchAssetsWithOptions(nil)
 
