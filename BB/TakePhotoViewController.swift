@@ -29,7 +29,10 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   
   var imageID: String?
   
-  var progressVC: ProgressViewController?
+  var blurEffectView: UIVisualEffectView?
+  
+  var activitySwirl: UIActivityIndicatorView?
+  
   //MARK: Lifecycle methods
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -102,6 +105,30 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         newPraseImageObject["theImage"] = imageFile
         newPraseImageObject["imageName"] = "An Image"
         newPraseImageObject["description"] = "My Image"
+        //Display and Start Progress Bar
+        // Blur Effect
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        self.blurEffectView = UIVisualEffectView(effect: blurEffect)
+        self.blurEffectView!.frame = view.bounds
+        view.addSubview(self.blurEffectView!)
+        
+        // Vibrancy Effect
+        var vibrancyEffect = UIVibrancyEffect(forBlurEffect: blurEffect)
+        var vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyEffectView.frame = view.bounds
+        
+        //Make and add progress bar
+        self.activitySwirl = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.WhiteLarge)
+        self.activitySwirl!.startAnimating()
+        self.activitySwirl!.sizeToFit()
+        self.activitySwirl!.center = self.view.center
+        // Add label to the vibrancy view
+        vibrancyEffectView.contentView.addSubview(self.activitySwirl!)
+        
+        // Add the vibrancy view to the blur view
+        self.blurEffectView!.contentView.addSubview(vibrancyEffectView)
+        
+        
         newPraseImageObject.saveInBackgroundWithBlock({ (didSave, error) -> Void in
           if didSave {
             BurnerController.sharedBurn.lightTheFire(imageFile!.url!, completion: { (imageID, imagePosition) -> Void in
@@ -115,11 +142,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
               
               alertController.addAction(alertActionDismiss)
               self.presentViewController(alertController, animated: true, completion: nil)
-              
-              self.progressVC = ProgressViewController()
-            
-              
-            })
+              })
           }else{
             println("Phrase not saved")
           }
@@ -129,7 +152,6 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   }
   
   func doubleTapped(sender: UITapGestureRecognizer){
-    
     let DVC = self.storyboard?.instantiateViewControllerWithIdentifier("photoCollectionController") as PhotoCollectionViewController
     DVC.delegate = self
     DVC.mainImageSize = self.myImageView?.frame.size
@@ -170,6 +192,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   func transferMaks(theMask: String){
       BurnerController.sharedBurn.riseFromTheAshes(theMask, imageID: self.imageID!, completion: { (imageURL) -> Void in
         BurnerController.sharedBurn.fetchFinalImage(imageURL!, completion: { (theReturnedImage) -> Void in
+          
           //Set the image view's constraints
           self.imageHeight.constant = theReturnedImage!.size.height
           self.imageWidth.constant = theReturnedImage!.size.width
@@ -178,6 +201,9 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
           
           self.setScrollZoomForImage(theReturnedImage!, theScroll: self.myScrollView)
           self.saveButtom.enabled = true
+          self.activitySwirl!.stopAnimating()
+          self.blurEffectView?.removeFromSuperview()
+          
         })
     
       })
@@ -195,8 +221,6 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         //DVC.originalImage = self.myImageView.image
         DVC.delegate = self
         self.navigationController?.pushViewController(DVC, animated: true)
-        
-    
       }
     })
   }

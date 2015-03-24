@@ -33,6 +33,7 @@ class MaskCollectionViewController: UIViewController, UICollectionViewDataSource
     self.myCollectionView.delegate = self
     self.arrayOfURLs = [String](self.dictionaryOfMasks!.values)
     self.arrayOfIDs = [String](self.dictionaryOfMasks!.keys)
+    self.navigationItem.title = "Select a Mask"
   }
   
   

@@ -41,7 +41,6 @@
 		4E8119CA1AB8830800D6F4BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119C91AB8830800D6F4BE /* Images.xcassets */; };
 		4E8119CD1AB8830800D6F4BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119CB1AB8830800D6F4BE /* LaunchScreen.xib */; };
 		4E8119D91AB8830800D6F4BE /* BBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119D81AB8830800D6F4BE /* BBTests.swift */; };
-		4ED341A51ABF6003009036BD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED341A41ABF6003009036BD /* ProgressViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +89,6 @@
 		4E8119D21AB8830800D6F4BE /* BBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8119D71AB8830800D6F4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8119D81AB8830800D6F4BE /* BBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBTests.swift; sourceTree = "<group>"; };
-		4ED341A41ABF6003009036BD /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,7 +254,6 @@
 				4E8119C41AB8830800D6F4BE /* TakePhotoViewController.swift */,
 				4E02BBE01AB8973F003ADEFC /* PhotoCollectionViewController.swift */,
 				4E02BC151ABB60E4003ADEFC /* MaskCollectionViewController.swift */,
-				4ED341A41ABF6003009036BD /* ProgressViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -367,7 +364,6 @@
 				4E02BBE91AB8A005003ADEFC /* BurnerController.swift in Sources */,
 				4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */,
 				4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */,
-				4ED341A51ABF6003009036BD /* ProgressViewController.swift in Sources */,
 				4E02BC161ABB60E4003ADEFC /* MaskCollectionViewController.swift in Sources */,
 				4E02BBE51AB89BB9003ADEFC /* ImageTransferProtocol.swift in Sources */,
 				4E02BBEB1AB8D795003ADEFC /* GlobalData.swift in Sources */,

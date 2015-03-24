@@ -31,6 +31,7 @@ class PhotoCollectionViewController: UIViewController, UICollectionViewDataSourc
       self.myCollectionView.backgroundColor = UIColor.whiteColor()  
       self.imageManager = PHCachingImageManager()
       self.arrayOfFetchedResults = PHAsset.fetchAssetsWithOptions(nil)
+      self.navigationItem.title = "Select a photo!"
 
     }
 
