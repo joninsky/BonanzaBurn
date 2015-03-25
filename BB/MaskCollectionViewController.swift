@@ -75,6 +75,17 @@ class MaskCollectionViewController: UIViewController, UICollectionViewDataSource
     
   }
   
+  
+  @IBAction func infoButtonPressed(sender: AnyObject) {
+    let alertController = UIAlertController(title: "Info", message: "Please Select the mask you think is the best. \n \n The black part is the part that will be kept. Also, the server my have rotated masks.", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let alertActionDismiss = UIAlertAction(title: "K, Thanks", style: UIAlertActionStyle.Default, handler: nil)
+    alertController.addAction(alertActionDismiss)
+    self.presentViewController(alertController, animated: true, completion: nil)
+    
+  }
+  
+  
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     
     self.delegate?.transferMaks(self.arrayOfIDs![indexPath.row])

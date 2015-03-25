@@ -50,6 +50,15 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
     if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera){
       self.cameraButton.enabled = false
     }
+    
+    let theImageFile = NSBundle.mainBundle().pathForResource("BonanzaLogo", ofType: "png")!
+    
+    var theColor = UIColor(patternImage: UIImage(contentsOfFile: theImageFile)!)
+    
+    self.view.backgroundColor = theColor
+    
+    self.myScrollView.backgroundColor = UIColor.whiteColor()
+
   }
   
   //MARK: Camera picker methods.
@@ -136,12 +145,16 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
           if didSave {
             BurnerController.sharedBurn.lightTheFire(imageFile!.url!, completion: { (imageID, imagePosition) -> Void in
               self.imageID = imageID
+              UIApplication.sharedApplication().endIgnoringInteractionEvents()
               let miltiplier: Int = imagePosition!.toInt()!
               let secondsToWait: Double = Double(miltiplier) * 6
               let timer = NSTimer.scheduledTimerWithTimeInterval(secondsToWait, target: self, selector: "finishUpImageProcessing:", userInfo: nil, repeats: false)
               let alertController = UIAlertController(title: "In Line!", message: "Your photo was queued on the server in position \(imagePosition!) ", preferredStyle: UIAlertControllerStyle.Alert)
               
-              let alertActionDismiss = UIAlertAction(title: "Thanks.", style: UIAlertActionStyle.Default, handler: nil)
+              let alertActionDismiss = UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler: { (theAction) -> Void in
+                
+                UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+              })
               
               alertController.addAction(alertActionDismiss)
               self.presentViewController(alertController, animated: true, completion: nil)
@@ -181,6 +194,14 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
 
   }
   
+  @IBAction func infoButtonPressed(sender: AnyObject) {
+    let alertController = UIAlertController(title: "Info", message: "Double tap to select from your camera roll. \n \n Touch the camera button to take a photo.", preferredStyle: UIAlertControllerStyle.Alert)
+    
+    let alertActionDismiss = UIAlertAction(title: "Thanks", style: UIAlertActionStyle.Default, handler: nil)
+    
+    alertController.addAction(alertActionDismiss)
+    self.presentViewController(alertController, animated: true, completion: nil)
+  }
   
   
   func transferImage(theImage: UIImage) {
@@ -195,7 +216,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   
   
   func transferMaks(theMask: String){
-      BurnerController.sharedBurn.riseFromTheAshes(theMask, imageID: self.imageID!, completion: { (imageURL) -> Void in
+    UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+    BurnerController.sharedBurn.riseFromTheAshes(theMask, imageID: self.imageID!, completion: { (imageURL) -> Void in
         BurnerController.sharedBurn.fetchFinalImage(imageURL!, completion: { (theReturnedImage) -> Void in
           
           //Set the image view's constraints
@@ -222,6 +244,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
       }else{
         let dictionaryOfMasks = returnedDictionary
         let arrayOfKeys = [String](dictionaryOfMasks.keys)
+        UIApplication.sharedApplication().endIgnoringInteractionEvents()
         let DVC = self.storyboard?.instantiateViewControllerWithIdentifier("MaskCollectionView") as MaskCollectionViewController
         DVC.dictionaryOfMasks = returnedDictionary
         //DVC.originalImage = self.myImageView.image

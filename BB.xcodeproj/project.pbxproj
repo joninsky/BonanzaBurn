@@ -41,6 +41,7 @@
 		4E8119CA1AB8830800D6F4BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119C91AB8830800D6F4BE /* Images.xcassets */; };
 		4E8119CD1AB8830800D6F4BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119CB1AB8830800D6F4BE /* LaunchScreen.xib */; };
 		4E8119D91AB8830800D6F4BE /* BBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119D81AB8830800D6F4BE /* BBTests.swift */; };
+		4EE742FD1AC2776B00B715A8 /* BonanzaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE742FC1AC2776B00B715A8 /* BonanzaLogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		4E8119D21AB8830800D6F4BE /* BBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8119D71AB8830800D6F4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8119D81AB8830800D6F4BE /* BBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBTests.swift; sourceTree = "<group>"; };
+		4EE742FC1AC2776B00B715A8 /* BonanzaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BonanzaLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				4E02BBDC1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png */,
+				4EE742FC1AC2776B00B715A8 /* BonanzaLogo.png */,
 				4E8119BE1AB8830800D6F4BE /* Info.plist */,
 				4E02BBFC1ABA060A003ADEFC /* BB-Bridging-Header.h */,
 				4E02BBFD1ABA060A003ADEFC /* BBTests-Bridging-Header.h */,
@@ -342,6 +345,7 @@
 				4E8119CD1AB8830800D6F4BE /* LaunchScreen.xib in Resources */,
 				4E02BBDD1AB88974003ADEFC /* Screen Shot 2015-03-17 at 9.06.40 AM_burned.png in Resources */,
 				4E8119CA1AB8830800D6F4BE /* Images.xcassets in Resources */,
+				4EE742FD1AC2776B00B715A8 /* BonanzaLogo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
