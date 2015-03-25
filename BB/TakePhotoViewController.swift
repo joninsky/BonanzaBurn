@@ -128,6 +128,9 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
         // Add the vibrancy view to the blur view
         self.blurEffectView!.contentView.addSubview(vibrancyEffectView)
         
+        //Disable user interactions
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        
         
         newPraseImageObject.saveInBackgroundWithBlock({ (didSave, error) -> Void in
           if didSave {
@@ -145,6 +148,9 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
               })
           }else{
             println("Phrase not saved")
+            self.activitySwirl!.stopAnimating()
+            self.blurEffectView?.removeFromSuperview()
+            UIApplication.sharedApplication().endIgnoringInteractionEvents()
           }
         })
       }
@@ -162,7 +168,6 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   //MARK: Button Functions
   @IBAction func saveImageAction(sender: AnyObject) {
     
-   
     let alertController = UIAlertController(title: "Save?", message: "Save your image to your local camera roll?", preferredStyle: UIAlertControllerStyle.Alert)
     
     let alertActionDismiss = UIAlertAction(title: "Wait! No!", style: UIAlertActionStyle.Default, handler: nil)
@@ -203,6 +208,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
           self.saveButtom.enabled = true
           self.activitySwirl!.stopAnimating()
           self.blurEffectView?.removeFromSuperview()
+          UIApplication.sharedApplication().endIgnoringInteractionEvents()
           
         })
     
