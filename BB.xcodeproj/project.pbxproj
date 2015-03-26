@@ -41,6 +41,8 @@
 		4E8119CA1AB8830800D6F4BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119C91AB8830800D6F4BE /* Images.xcassets */; };
 		4E8119CD1AB8830800D6F4BE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E8119CB1AB8830800D6F4BE /* LaunchScreen.xib */; };
 		4E8119D91AB8830800D6F4BE /* BBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8119D81AB8830800D6F4BE /* BBTests.swift */; };
+		4EBB24B51AC4BC4600CB2A9A /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB24B41AC4BC4600CB2A9A /* Custom.swift */; };
+		4EBB24B61AC4BC4600CB2A9A /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB24B41AC4BC4600CB2A9A /* Custom.swift */; };
 		4EE742FD1AC2776B00B715A8 /* BonanzaLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE742FC1AC2776B00B715A8 /* BonanzaLogo.png */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,7 @@
 		4E8119D21AB8830800D6F4BE /* BBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8119D71AB8830800D6F4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E8119D81AB8830800D6F4BE /* BBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBTests.swift; sourceTree = "<group>"; };
+		4EBB24B41AC4BC4600CB2A9A /* Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
 		4EE742FC1AC2776B00B715A8 /* BonanzaLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BonanzaLogo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,6 +237,7 @@
 				4E8119C11AB8830800D6F4BE /* BB.xcdatamodeld */,
 				4E02BBE21AB89A6C003ADEFC /* PhotoCell.swift */,
 				4E02BBEA1AB8D795003ADEFC /* GlobalData.swift */,
+				4EBB24B41AC4BC4600CB2A9A /* Custom.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -367,6 +371,7 @@
 				4E02BBE31AB89A6C003ADEFC /* PhotoCell.swift in Sources */,
 				4E02BBE91AB8A005003ADEFC /* BurnerController.swift in Sources */,
 				4E8119C01AB8830800D6F4BE /* AppDelegate.swift in Sources */,
+				4EBB24B51AC4BC4600CB2A9A /* Custom.swift in Sources */,
 				4E8119C31AB8830800D6F4BE /* BB.xcdatamodeld in Sources */,
 				4E02BC161ABB60E4003ADEFC /* MaskCollectionViewController.swift in Sources */,
 				4E02BBE51AB89BB9003ADEFC /* ImageTransferProtocol.swift in Sources */,
@@ -379,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EBB24B61AC4BC4600CB2A9A /* Custom.swift in Sources */,
 				4E8119D91AB8830800D6F4BE /* BBTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,7 +21,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvS-rW-3BS">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NdU-Rk-kuT">
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NdU-Rk-kuT">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="352" id="0gx-Lj-J4W"/>
@@ -122,12 +122,12 @@
                                 <exclude reference="EbF-DH-e9O"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="mEc-H7-51q"/>
                                 <exclude reference="AS1-0A-cUy"/>
                                 <exclude reference="xQ3-oC-XcK"/>
                                 <exclude reference="zjx-t8-CkW"/>
                                 <exclude reference="Z94-TA-SG4"/>
                                 <exclude reference="yAp-x0-yZv"/>
-                                <exclude reference="mEc-H7-51q"/>
                                 <exclude reference="HSf-3g-FbE"/>
                                 <exclude reference="bmO-5B-Kzr"/>
                             </mask>
@@ -138,12 +138,12 @@
                                 <include reference="EbF-DH-e9O"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="mEc-H7-51q"/>
                                 <include reference="AS1-0A-cUy"/>
                                 <include reference="xQ3-oC-XcK"/>
                                 <include reference="zjx-t8-CkW"/>
                                 <include reference="Z94-TA-SG4"/>
                                 <include reference="yAp-x0-yZv"/>
-                                <include reference="mEc-H7-51q"/>
                                 <include reference="HSf-3g-FbE"/>
                                 <include reference="bmO-5B-Kzr"/>
                             </mask>
@@ -165,6 +165,7 @@
                         <outlet property="cameraButton" destination="Cjs-IE-M3e" id="V9D-RK-A2s"/>
                         <outlet property="imageHeight" destination="leb-1B-Vn0" id="81y-OD-7Wf"/>
                         <outlet property="imageWidth" destination="0gx-Lj-J4W" id="0ug-E9-oTc"/>
+                        <outlet property="myBurnButton" destination="7oF-AD-zMI" id="RvZ-qh-kso"/>
                         <outlet property="myImageView" destination="NdU-Rk-kuT" id="aDz-oB-U7G"/>
                         <outlet property="myScrollView" destination="mvS-rW-3BS" id="2Zu-4b-1A8"/>
                         <outlet property="saveButtom" destination="K23-TV-GtV" id="usb-vk-7PW"/>
@@ -247,12 +248,12 @@
                                 <exclude reference="qxN-iU-r71"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4HC-kL-dxP"/>
+                                <exclude reference="Nn6-Y4-df8"/>
+                                <exclude reference="2Nw-1w-OJU"/>
                                 <exclude reference="3Ph-WT-T3j"/>
                                 <exclude reference="EwY-4h-NpQ"/>
                                 <exclude reference="cgg-ud-kns"/>
-                                <exclude reference="2Nw-1w-OJU"/>
-                                <exclude reference="4HC-kL-dxP"/>
-                                <exclude reference="Nn6-Y4-df8"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -261,12 +262,12 @@
                                 <include reference="qxN-iU-r71"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4HC-kL-dxP"/>
+                                <include reference="Nn6-Y4-df8"/>
+                                <include reference="2Nw-1w-OJU"/>
                                 <include reference="3Ph-WT-T3j"/>
                                 <include reference="EwY-4h-NpQ"/>
                                 <include reference="cgg-ud-kns"/>
-                                <include reference="2Nw-1w-OJU"/>
-                                <include reference="4HC-kL-dxP"/>
-                                <include reference="Nn6-Y4-df8"/>
                             </mask>
                         </variation>
                     </view>

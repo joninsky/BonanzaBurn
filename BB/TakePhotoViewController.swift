@@ -13,6 +13,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   //MARK: Properties and outlets
   @IBOutlet weak var myImageView: UIImageView!
   
+  @IBOutlet weak var myBurnButton: UIButton!
+  
   @IBOutlet weak var myScrollView: UIScrollView!
   
   @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -32,6 +34,12 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
   var blurEffectView: UIVisualEffectView?
   
   var activitySwirl: UIActivityIndicatorView?
+  
+  var isProcessed = false
+  
+  //MARK: Image Properties
+  
+  var lastTouch: CGPoint?
   
   //MARK: Lifecycle methods
   override func viewDidLoad() {
@@ -58,6 +66,8 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
     self.view.backgroundColor = theColor
     
     self.myScrollView.backgroundColor = UIColor.whiteColor()
+    
+    self.myBurnButton.addTarget(self, action: "touchDown:", forControlEvents: UIControlEvents.TouchDown)
 
   }
   
@@ -94,7 +104,41 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
     self.presentViewController(imagePickerController, animated: true, completion: nil)
   }
   
+  
+  func touchDown(sender: UIButton!){
+    
+    if self.isProcessed == true{
+    
+      self.myScrollView.scrollEnabled = false
+      
+    }
+  }
+  
+  
   @IBAction func burnButtonPressed(sender: AnyObject) {
+    
+    if self.isProcessed == true {
+      let alertController = UIAlertController(title: "Again?", message: "Do you want to process the photo again? If so the white will be completly removed.", preferredStyle: UIAlertControllerStyle.Alert)
+      
+      let alertActionProcess = UIAlertAction(title: "Process!", style: UIAlertActionStyle.Default, handler: { (theAction) -> Void in
+        self.isProcessed == false
+        self.myScrollView.scrollEnabled = true
+        self.burnButtonPressed(self)
+        
+      })
+      
+      let alertActionDismiss = UIAlertAction(title: "No, I'll hold on.", style: UIAlertActionStyle.Default, handler: { (theAction) -> Void in
+        self.myScrollView.scrollEnabled = true
+      })
+      
+      alertController.addAction(alertActionDismiss)
+      alertController.addAction(alertActionProcess)
+      presentViewController(alertController, animated: true, completion: nil)
+      return
+    }
+    
+    
+    //self.myScrollView.scrollEnabled = true
     if self.myImageView.image == nil {
       let alertController = UIAlertController(title: "No Photo", message: "We need something to fuel the burn! \n \n Either select the camera button in the top right or double tap to choose from your library of photos.", preferredStyle: UIAlertControllerStyle.Alert)
       
@@ -231,7 +275,7 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
           self.activitySwirl!.stopAnimating()
           self.blurEffectView?.removeFromSuperview()
           UIApplication.sharedApplication().endIgnoringInteractionEvents()
-          
+          self.isProcessed = true
         })
     
       })
@@ -277,6 +321,41 @@ class TakePhotoViewController: UIViewController, UIImagePickerControllerDelegate
     //Dismiss the Image Picker controller.
     
     
+  }
+  
+  
+  //MARK: Touches Methods
+  
+  
+  
+  override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+    
+    let touch: UITouch = touches.anyObject() as UITouch
+    if touch.view == self.myScrollView{
+      lastTouch = touch.locationInView(self.myImageView)
+      println(self.lastTouch)
+    }
+  }
+  
+  override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
+    let touch: UITouch = touches.anyObject() as UITouch
+    if touch.view == self.myScrollView {
+      let currentPoint: CGPoint = touch.locationInView(self.myImageView)
+      
+      self.lastTouch = currentPoint
+      
+      println(self.lastTouch)
+
+    }
+  }
+  
+  
+  override func touchesEnded(touches: NSSet, withEvent event: UIEvent) {
+    
+    let touch: UITouch = touches.anyObject() as UITouch
+    if touch.view == self.myScrollView{
+      println(self.lastTouch)
+    }
   }
   
 }
